@@ -1,0 +1,19 @@
+FROM ubuntu:20.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y \
+    wkhtmltopdf \
+    python3 \
+    python3-pip \
+    xvfb \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install werkzeug executor gunicorn
+
+COPY app_py3.py /app.py
+
+EXPOSE 80
+
+ENTRYPOINT ["gunicorn"]
+CMD ["-b", "0.0.0.0:80", "--log-file", "-", "app:application"]
