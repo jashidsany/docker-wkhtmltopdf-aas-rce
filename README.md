@@ -17,7 +17,7 @@
 
 ## Description
 
-[docker-wkhtmltopdf-aas](https://github.com/openlabs/docker-wkhtmltopdf-aas) is a Dockerized web service (~100 stars, 94 forks, active Docker Hub image) that converts HTML to PDF using wkhtmltopdf.
+[docker-wkhtmltopdf-aas](https://github.com/openlabs/docker-wkhtmltopdf-aas) is a Dockerized web service that converts HTML to PDF using wkhtmltopdf.
 
 The application accepts user-supplied options via JSON POST requests and concatenates them directly into a shell command string with no sanitization. The string is passed to the Python `executor` library's `execute()` function, which evaluates it via `bash -c`. A single unauthenticated HTTP request achieves remote code execution as root.
 
